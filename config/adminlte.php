@@ -191,12 +191,12 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => 'bg-cyan',
+    'classes_brand' => 'bg-custom',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-light-info elevation-4',
+    'classes_sidebar' => 'sidebar-custom elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-info navbar-light',
     'classes_topnav_nav' => 'navbar-expand',

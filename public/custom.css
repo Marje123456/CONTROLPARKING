@@ -1,0 +1,60 @@
+/* Estilos personalizados para la barra lateral cian */
+.sidebar-custom {
+    background-color: #00bcd4 !important; /* Color cian */
+    color: #fff !important;
+    border-right: none !important;
+}
+
+/* Estilo para el menú desplegable */
+.sidebar-custom .nav-treeview {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Estilo para los ítems del menú */
+.sidebar-custom .nav-sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-left: 3px solid transparent;
+    margin-bottom: 2px;
+}
+
+/* Efecto hover para los ítems del menú */
+.sidebar-custom .nav-sidebar .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+    color: #fff !important;
+    border-left-color: #fff;
+}
+
+/* Estilo para el ítem activo */
+.sidebar-custom .nav-sidebar .nav-item > .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    color: #fff !important;
+    border-left-color: #fff;
+    font-weight: 600;
+}
+
+/* Estilo para la barra superior */
+.bg-custom {
+    background-color: #00a5bb !important; /* Un tono de cian ligeramente más oscuro para la marca */
+    color: #fff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Mejora para el menú desplegable */
+.sidebar-custom .nav-item.has-treeview > .nav-link {
+    border-left: 3px solid transparent;
+}
+
+.sidebar-custom .nav-item.has-treeview.menu-open > .nav-link {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+    border-left-color: #fff;
+}
+
+/* Ajustes para el texto del logo */
+.brand-link {
+    border-bottom: none !important;
+}
+
+/* Mejora para el hover del logo */
+.brand-link:hover {
+    text-decoration: none !important;
+}
