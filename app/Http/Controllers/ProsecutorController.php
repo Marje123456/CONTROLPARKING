@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Prosecutor;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProsecutorController extends Controller
@@ -21,7 +22,8 @@ class ProsecutorController extends Controller
      */
     public function create()
     {
-        return view('prosecutors.create');
+        $users = User::all();
+        return view('prosecutors.create', compact('users'));
     }
 
     /**
