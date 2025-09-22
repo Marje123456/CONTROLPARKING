@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('dni');
             $table->string('phone');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

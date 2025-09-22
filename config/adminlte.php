@@ -311,41 +311,71 @@ return [
         ],
 
         // Sidebar items:
-        ['header' => 'account_settings'],
+        ['header' => 'GESTIÓN DEL SISTEMA'],
+        
+        // Menú de Usuarios
         [
             'text' => 'Usuarios',
-            'url' => 'admin/users',
-            'icon' => 'fas fa-fw fa-user',
+            'url' => '#',
+            'icon' => 'fas fa-fw fa-users',
             'submenu' => [
                 [
-                    'text' => 'Registro',
-                    'url' => '#',
+                    'text' => 'Listado de Usuarios',
+                    'url' => 'users',
+                    'icon' => 'fas fa-fw fa-list',
+                    'can' => 'manage-users',  // Solo visible para administradores
                 ],
                 [
-                    'text' => 'Listado',
-                    'url' => '#',
+                    'text' => 'Registrar Nuevo Usuario',
+                    'route' => 'register',
+                    'icon' => 'fas fa-fw fa-user-plus',
                 ],
             ],
         ],
+        
+        // Menú de Fiscales
+        [
+            'text' => 'Fiscales',
+            'url' => '#',
+            'icon' => 'fas fa-fw fa-user-tie',
+            'submenu' => [
+                [
+                    'text' => 'Listado',
+                    'url' => 'prosecutors',
+                    'icon' => 'fas fa-fw fa-list',
+                ],
+                [
+                    'text' => 'Nuevo Fiscal',
+                    'url' => 'prosecutors/create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
+                ],
+            ],
+        ],
+        
+        // Menú de Tarifas
         [
             'text' => 'Tarifas',
-            'url' => 'admin/users',
-            'icon' => 'fas fa-fw fa-user',
+            'url' => '#',
+            'icon' => 'fas fa-fw fa-tags',
             'submenu' => [
                 [
-                    'text' => 'Registro',
-                    'url' => '#',
+                    'text' => 'Listado',
+                    'url' => 'rates',
+                    'icon' => 'fas fa-fw fa-list',
                 ],
                 [
-                    'text' => 'Listado',
-                    'url' => '#',
+                    'text' => 'Nueva Tarifa',
+                    'url' => 'rates/create',
+                    'icon' => 'fas fa-fw fa-plus-circle',
                 ],
             ],
         ],
+        
+        // Menú de Tickets
         [
             'text' => 'Tickets',
-            'url' => 'admin/users',
-            'icon' => 'fas fa-fw fa-user',
+            'url' => '#',
+            'icon' => 'fas fa-fw fa-ticket-alt',
             'submenu' => [
                 [
                     'text' => 'Historial',
