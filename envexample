@@ -1,0 +1,24 @@
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:oTosRRrLyzkAmr/mbLr72G2W7Av0ILLjWxJnktjedx4=
+APP_DEBUG=true
+#APP_DEBUG=false
+APP_URL=http://localhost
+##APP_URL=https://f97f-185-177-125-86.ngrok-free.app
+
+LOG_LEVEL=error
+LOG_CHANNEL=stack
+
+# DB_CONNECTION=pgsql
+#DB_HOST=127.0.0.1
+#DB_PORT=5432
+#DB_DATABASE=slots
+#DB_USERNAME=postgres
+#DB_PASSWORD=Post6112  
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=controlparking
+DB_USERNAME=root
+DB_PASSWORD=
+
