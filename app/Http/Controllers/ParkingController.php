@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Parking;
 use App\Models\Prosecutor;
 use App\Models\Rate;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
@@ -57,11 +58,9 @@ class ParkingController extends Controller
                 'is_active' => true
             ]);
             
-            // Asociar el fiscal al usuario
-            $user->prosecutor()->save($prosecutor);
-            
-            // Recargar la relación
-            $user->load('prosecutor');
+            // El fiscal ya está asociado al usuario a través del user_id en su creación
+            // Recargar el usuario para asegurar que tenemos la relación cargada
+            $user = User::with('prosecutor')->find($user->id);
             $prosecutor = $user->prosecutor;
             
             // Mostrar mensaje informativo
