@@ -311,6 +311,31 @@ return [
         ],
 
         // Sidebar items:
+        ['header' => 'OPERACIONES DE ESTACIONAMIENTO'],
+        
+        // Menú de Estacionamiento
+        [
+            'text' => 'Estacionamiento',
+            'icon' => 'fas fa-fw fa-car',
+            'submenu' => [
+                [
+                    'text' => 'Registrar Entrada',
+                    'route' => 'parking.entry.create',
+                    'icon' => 'fas fa-fw fa-sign-in-alt',
+                ],
+                [
+                    'text' => 'Registrar Salida',
+                    'route' => 'parking.exit.create',
+                    'icon' => 'fas fa-fw fa-sign-out-alt',
+                ],
+                [
+                    'text' => 'Vehículos Estacionados',
+                    'route' => 'parking.index',
+                    'icon' => 'fas fa-fw fa-list',
+                ],
+            ],
+        ],
+        
         ['header' => 'GESTIÓN DEL SISTEMA'],
         
         // Menú de Usuarios

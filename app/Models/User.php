@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Prosecutor;
 
 class User extends Authenticatable
 {
@@ -52,5 +53,13 @@ class User extends Authenticatable
     public function adminlte_desc()
     {
         return "Administrador";
+    }
+    
+    /**
+     * Obtiene el fiscal asociado al usuario.
+     */
+    public function prosecutor()
+    {
+        return $this->hasOne(Prosecutor::class, 'user_id');
     }
 }
