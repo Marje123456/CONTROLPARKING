@@ -30,7 +30,8 @@ Route::prefix('parking')->name('parking.')->group(function () {
     
     // Salida de vehículos
     Route::get('/exit', [App\Http\Controllers\ParkingController::class, 'createExit'])->name('exit.create');
-    Route::post('/exit', [App\Http\Controllers\ParkingController::class, 'processExit'])->name('exit.process');
+    Route::post('/exit/preview', [App\Http\Controllers\ParkingController::class, 'showExitPreview'])->name('exit.preview');
+    Route::post('/exit/{id}/process', [App\Http\Controllers\ParkingController::class, 'processExit'])->name('exit.process');
     
     // Proceso de pago
     Route::get('/payment/{id}', [App\Http\Controllers\ParkingController::class, 'showPayment'])->name('payment');

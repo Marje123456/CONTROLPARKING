@@ -96,18 +96,25 @@ class Parking extends Model
             return null;
         }
         
-        // Obtener la tarifa activa
-        $rate = Rate::where('is_active', true)->first();
+        // Obtener la tarifa asignada al registro
+        $rate = $this->rate;
         
         if (!$rate) {
-            return null;
+            // Si no hay tarifa asignada, intentar obtener la tarifa activa
+            $rate = Rate::where('is_active', true)->first();
+            
+            if (!$rate) {
+                return null;
+            }
+            
+            // Asignar la tarifa activa al registro
+            $this->rate_id = $rate->id;
         }
         
         // Si el tiempo es menor a 30 minutos, usar amount, de lo contrario amount_exceeded
         $amount = $minutes < 30 ? $rate->amount : $rate->amount_exceeded;
         
-        // Guardar la tarifa aplicada
-        $this->rate_id = $rate->id;
+        // Guardar los datos calculados
         $this->minutes_parked = $minutes;
         $this->amount_charged = $amount;
         

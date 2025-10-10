@@ -149,9 +149,9 @@ class ParkingController extends Controller
     }
 
     /**
-     * Procesa la salida de un vehículo
+     * Muestra la vista previa de salida con opción de seleccionar tarifa
      */
-    public function processExit(Request $request)
+    public function showExitPreview(Request $request)
     {
         $request->validate([
             'ticket_number' => 'required|string|exists:parkings,ticket_number',
@@ -167,11 +167,44 @@ class ParkingController extends Controller
                 ->with('error', 'Ticket no encontrado o el vehículo ya ha salido.');
         }
 
-        // Registrar la salida y calcular el monto
-        $parking->checkOut();
+        // Obtener todas las tarifas activas
+        $rates = \App\Models\Rate::where('is_active', true)->get();
+        
+        if ($rates->isEmpty()) {
+            return redirect()->back()
+                ->with('error', 'No hay tarifas configuradas. Por favor, contacte al administrador.');
+        }
 
-        return redirect()->route('parking.payment', $parking->id)
-            ->with('success', 'Salida registrada correctamente.');
+        return view('parking.exit-preview', compact('parking', 'rates'));
+    }
+
+    /**
+     * Procesa la salida de un vehículo con la tarifa seleccionada
+     */
+    public function processExit(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'rate_id' => 'required|exists:rates,id',
+        ]);
+
+        $parking = Parking::findOrFail($id);
+        
+        if (is_null($parking->exit_time)) {
+            // Asignar la tarifa seleccionada
+            $parking->rate_id = $validated['rate_id'];
+            // Registrar la salida y calcular el monto
+            $parking->checkOut();
+        }
+
+        // Verificar si el pago ya fue procesado
+        if ($parking->is_paid) {
+            return redirect()->route('parking.index')
+                ->with('info', 'El vehículo ya había registrado su salida y pago anteriormente.');
+        }
+
+        // Redirigir a la página de pago
+        return redirect()->route('parking.payment', ['id' => $parking->id])
+            ->with('success', 'Salida registrada correctamente. Proceda con el pago.');
     }
 
     /**

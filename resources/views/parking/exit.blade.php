@@ -11,7 +11,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('parking.exit.process') }}" method="POST" id="exitForm">
+                    <form action="{{ route('parking.exit.preview') }}" method="POST" id="exitForm">
                         @csrf
                         
                         <div class="form-group">
