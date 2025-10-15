@@ -311,13 +311,23 @@ return [
         ],
 
         // Sidebar items:
-        ['header' => 'OPERACIONES DE ESTACIONAMIENTO'],
+        ['header' => 'TICKETS'],
         
-        // Menú de Estacionamiento
+        // Menú de Tickets
         [
-            'text' => 'Estacionamiento',
-            'icon' => 'fas fa-fw fa-car',
+            'text' => 'Tickets',
+            'icon' => 'fas fa-fw fa-ticket-alt',
             'submenu' => [
+                [
+                    'text' => 'Vehículos Estacionados',
+                    'route' => 'parking.index',
+                    'icon' => 'fas fa-fw fa-car',
+                ],
+                [
+                    'text' => 'Historial de Tickets',
+                    'route' => 'parking.history',
+                    'icon' => 'fas fa-fw fa-history',
+                ],
                 [
                     'text' => 'Registrar Entrada',
                     'route' => 'parking.entry.create',
@@ -328,11 +338,20 @@ return [
                     'route' => 'parking.exit.create',
                     'icon' => 'fas fa-fw fa-sign-out-alt',
                 ],
-                [
-                    'text' => 'Vehículos Estacionados',
-                    'route' => 'parking.index',
-                    'icon' => 'fas fa-fw fa-list',
+                /* [
+                    'text' => '---',
+                    'header' => true,
                 ],
+                [
+                    'text' => 'Reporte de Ventas',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-file-invoice-dollar',
+                ],
+                [
+                    'text' => 'Reporte Vehicular',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-car-side',
+                ],*/
             ],
         ],
         
@@ -396,48 +415,8 @@ return [
             ],
         ],
         
-        // Menú de Tickets
-        [
-            'text' => 'Tickets',
-            'icon' => 'fas fa-fw fa-ticket-alt',
-            'submenu' => [
-                [
-                    'text' => 'Vehículos Estacionados',
-                    'route' => 'parking.index',
-                    'icon' => 'fas fa-fw fa-car',
-                ],
-                [
-                    'text' => 'Historial de Tickets',
-                    'route' => 'parking.history',
-                    'icon' => 'fas fa-fw fa-history',
-                ],
-                [
-                    'text' => 'Registrar Entrada',
-                    'route' => 'parking.entry.create',
-                    'icon' => 'fas fa-fw fa-sign-in-alt',
-                ],
-                [
-                    'text' => 'Registrar Salida',
-                    'route' => 'parking.exit.create',
-                    'icon' => 'fas fa-fw fa-sign-out-alt',
-                ],
-                [
-                    'text' => '---',
-                    'header' => true,
-                ],
-                [
-                    'text' => 'Reporte de Ventas',
-                    'url' => '#',
-                    'icon' => 'fas fa-fw fa-file-invoice-dollar',
-                ],
-                [
-                    'text' => 'Reporte Vehicular',
-                    'url' => '#',
-                    'icon' => 'fas fa-fw fa-car-side',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
+        
+        /* ['header' => 'labels'],
         [
             'text' => 'important',
             'icon_color' => 'red',
@@ -452,7 +431,7 @@ return [
             'text' => 'information',
             'icon_color' => 'cyan',
             'url' => '#',
-        ],
+        ], */
     ],
 
     /*
