@@ -14,4 +14,12 @@ class Prosecutor extends Model
         'user_id',
         'is_active',
     ];
+
+    /**
+     * Obtener el usuario asociado al fiscal.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

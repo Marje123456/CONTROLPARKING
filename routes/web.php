@@ -36,4 +36,7 @@ Route::prefix('parking')->name('parking.')->group(function () {
     // Proceso de pago
     Route::get('/payment/{id}', [App\Http\Controllers\ParkingController::class, 'showPayment'])->name('payment');
     Route::post('/payment/{id}/process', [App\Http\Controllers\ParkingController::class, 'processPayment'])->name('payment.process');
+    
+    // Historial de tickets
+    Route::get('/history', [App\Http\Controllers\ParkingController::class, 'history'])->name('history');
 });

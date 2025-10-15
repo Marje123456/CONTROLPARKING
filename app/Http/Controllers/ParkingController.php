@@ -290,4 +290,43 @@ class ParkingController extends Controller
     {
         //
     }
+    
+    /**
+     * Muestra el historial de tickets con opciones de filtrado
+     */
+    public function history(Request $request)
+    {
+        // Obtener todos los usuarios para el filtro
+        $users = User::all();
+        
+        // Iniciar la consulta
+        $query = Parking::with(['prosecutor.user', 'rate'])
+            ->orderBy('created_at', 'desc');
+        
+        // Aplicar filtros
+        if ($request->filled('user_id')) {
+            $query->whereHas('prosecutor', function($q) use ($request) {
+                $q->where('user_id', $request->user_id);
+            });
+        }
+        
+        if ($request->filled('status')) {
+            if ($request->status === 'paid') {
+                $query->where('is_paid', true);
+            } elseif ($request->status === 'pending') {
+                $query->where('is_paid', false);
+            }
+        }
+        
+        if ($request->filled('start_date') && $request->filled('end_date')) {
+            $startDate = Carbon::parse($request->start_date)->startOfDay();
+            $endDate = Carbon::parse($request->end_date)->endOfDay();
+            $query->whereBetween('created_at', [$startDate, $endDate]);
+        }
+        
+        // Paginar los resultados
+        $tickets = $query->paginate(10)->withQueryString();
+        
+        return view('parking.history', compact('tickets', 'users'));
+    }
 }

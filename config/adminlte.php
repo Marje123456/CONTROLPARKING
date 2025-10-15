@@ -399,28 +399,41 @@ return [
         // Menú de Tickets
         [
             'text' => 'Tickets',
-            'url' => '#',
             'icon' => 'fas fa-fw fa-ticket-alt',
             'submenu' => [
                 [
-                    'text' => 'Historial',
-                    'url' => '#',
+                    'text' => 'Vehículos Estacionados',
+                    'route' => 'parking.index',
+                    'icon' => 'fas fa-fw fa-car',
                 ],
                 [
-                    'text' => 'Selector Usuarios',
-                    'url' => '#',
+                    'text' => 'Historial de Tickets',
+                    'route' => 'parking.history',
+                    'icon' => 'fas fa-fw fa-history',
                 ],
                 [
-                    'text' => 'Estado Ticket',
-                    'url' => '#',
+                    'text' => 'Registrar Entrada',
+                    'route' => 'parking.entry.create',
+                    'icon' => 'fas fa-fw fa-sign-in-alt',
                 ],
                 [
-                    'text' => 'Selector Fecha',
-                    'url' => '#',
+                    'text' => 'Registrar Salida',
+                    'route' => 'parking.exit.create',
+                    'icon' => 'fas fa-fw fa-sign-out-alt',
                 ],
                 [
-                    'text' => 'Reporte',
+                    'text' => '---',
+                    'header' => true,
+                ],
+                [
+                    'text' => 'Reporte de Ventas',
                     'url' => '#',
+                    'icon' => 'fas fa-fw fa-file-invoice-dollar',
+                ],
+                [
+                    'text' => 'Reporte Vehicular',
+                    'url' => '#',
+                    'icon' => 'fas fa-fw fa-car-side',
                 ],
             ],
         ],
